@@ -23,7 +23,7 @@ class GenreCard extends StatelessWidget {
             padding: const EdgeInsets.all(12),
             child: Icon(icon, color: Colors.black, size: 28),
           ),
-          const SizedBox(height: 6),
+          const SizedBox(height: 3),
           Text(
             name,
             textAlign: TextAlign.center,

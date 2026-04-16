@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:game_mart/screens/detail/game_detail_screen.dart';
+import 'package:game_mart/screens/search/category_screen.dart';
 
 import '../models/game_model.dart';
 import '../widgets/game_card.dart';
@@ -33,6 +34,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: TextField(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const CategoryScreen(),
+                            ),
+                          );
+                        },
                         decoration: InputDecoration(
                           hintText: 'Search',
                           hintStyle: TextStyle(color: Colors.grey[600]),
@@ -239,14 +248,14 @@ class _HomeScreenState extends State<HomeScreen> {
             ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
           ),
         ),
-        const SizedBox(height: 12),
+        const SizedBox(height: 4),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: GridView.count(
             crossAxisCount: 4,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            mainAxisSpacing: 12,
+            mainAxisSpacing: 16,
             crossAxisSpacing: 12,
             childAspectRatio: 0.85,
             children: List.generate(genres.length, (index) {

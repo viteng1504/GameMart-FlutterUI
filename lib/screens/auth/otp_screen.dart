@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../main.dart';
+import '../../main.dart';
 
 class OtpScreen extends StatelessWidget {
   const OtpScreen({super.key});
