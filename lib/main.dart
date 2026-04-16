@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:game_mart/screens/cart/my_cart_screen.dart';
+import 'package:game_mart/screens/cart/my_order_screen.dart';
+import 'package:game_mart/screens/profile/profile_screen.dart';
 
 import 'screens/home_screen.dart';
 import 'screens/splash_screen.dart';
@@ -49,18 +52,9 @@ class _MainScreenState extends State<MainScreen> {
           style: Theme.of(context).textTheme.headlineMedium,
         ),
       ),
-      Center(
-        child: Text('Sales', style: Theme.of(context).textTheme.headlineMedium),
-      ),
-      Center(
-        child: Text('Chat', style: Theme.of(context).textTheme.headlineMedium),
-      ),
-      Center(
-        child: Text(
-          'Profile',
-          style: Theme.of(context).textTheme.headlineMedium,
-        ),
-      ),
+      const MyOrdersScreen(),
+      const MyCartScreen(),
+      const ProfileScreen(),
     ];
   }
 

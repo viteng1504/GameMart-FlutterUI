@@ -1,9 +1,31 @@
 import 'package:flutter/material.dart';
 
-import 'reset_password_screen.dart';
+import '../main.dart';
 
-class ForgotPasswordScreen extends StatelessWidget {
-  const ForgotPasswordScreen({super.key});
+class OtpScreen extends StatelessWidget {
+  const OtpScreen({super.key});
+
+  Widget otpBox() {
+    return Container(
+      width: 48,
+      height: 56,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: const Center(
+        child: TextField(
+          textAlign: TextAlign.center,
+          keyboardType: TextInputType.number,
+          maxLength: 1,
+          decoration: InputDecoration(
+            counterText: '',
+            border: InputBorder.none,
+          ),
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,41 +70,48 @@ class ForgotPasswordScreen extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       const Text(
-                        'Forgot your Password?',
+                        'We sent you a 4 digit code to verify your email address (user@gmail.com).\nEnter in the field below.',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w800,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
-                      const SizedBox(height: 14),
-                      const Text(
-                        'Enter your email address and we will share a link to create a new password.',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Color(0xFF5E5E5E),
-                        ),
+                      const SizedBox(height: 28),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          otpBox(),
+                          const SizedBox(width: 10),
+                          otpBox(),
+                          const SizedBox(width: 10),
+                          otpBox(),
+                          const SizedBox(width: 10),
+                          otpBox(),
+                        ],
                       ),
-                      const SizedBox(height: 24),
-                      Container(
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: Colors.deepPurple),
-                        ),
-                        child: const TextField(
-                          decoration: InputDecoration(
-                            hintText: 'Enter Email Address',
-                            border: InputBorder.none,
-                            contentPadding: EdgeInsets.symmetric(
-                              horizontal: 16,
+                      const SizedBox(height: 28),
+                      const Text.rich(
+                        TextSpan(
+                          text: "Didn’t get the code? ",
+                          style: TextStyle(fontSize: 16),
+                          children: [
+                            TextSpan(
+                              text: "Resend",
+                              style: TextStyle(fontWeight: FontWeight.w800),
                             ),
-                          ),
+                          ],
                         ),
                       ),
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 8),
+                      const Text(
+                        'Expires in 01:00',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Color(0xFF473E89),
+                        ),
+                      ),
+                      const SizedBox(height: 28),
                       SizedBox(
                         width: double.infinity,
                         height: 56,
@@ -91,7 +120,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (_) => const ResetPasswordScreen(),
+                                builder: (_) => const MainScreen(),
                               ),
                             );
                           },
@@ -104,7 +133,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                             ),
                           ),
                           child: const Text(
-                            'Send',
+                            'Submit',
                             style: TextStyle(
                               fontSize: 22,
                               fontWeight: FontWeight.w700,

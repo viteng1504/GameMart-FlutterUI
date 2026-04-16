@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_mart/screens/detail/game_detail_screen.dart';
 
 import '../models/game_model.dart';
 import '../widgets/game_card.dart';
@@ -142,28 +143,36 @@ class _HomeScreenState extends State<HomeScreen> {
       'https://api.builder.io/api/v1/image/assets/TEMP/b3f9a779b25709ebfb70812107c299be83a0f8e9?width=486',
     ];
 
-    return SizedBox(
-      height: 200,
-      child: PageView.builder(
-        itemCount: images.length,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image.network(
-                images[index],
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) {
-                  return Container(
-                    color: Colors.grey[300],
-                    child: const Center(child: Icon(Icons.error)),
-                  );
-                },
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => const GameDetailScreen()),
+        );
+      },
+      child: SizedBox(
+        height: 200,
+        child: PageView.builder(
+          itemCount: images.length,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.network(
+                  images[index],
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Container(
+                      color: Colors.grey[300],
+                      child: const Center(child: Icon(Icons.error)),
+                    );
+                  },
+                ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

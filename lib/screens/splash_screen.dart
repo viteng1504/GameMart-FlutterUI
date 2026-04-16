@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'login_screen.dart';
+
+import 'onboarding_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -9,7 +10,6 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Anime characters background image
           Positioned.fill(
             child: Image.network(
               'https://api.builder.io/api/v1/image/assets/TEMP/7575479f93017167127c8a334d1cc1992df02020?width=804',
@@ -17,7 +17,6 @@ class SplashScreen extends StatelessWidget {
               alignment: Alignment.topCenter,
             ),
           ),
-          // Bottom gradient overlay
           Positioned(
             left: 0,
             right: 0,
@@ -38,12 +37,10 @@ class SplashScreen extends StatelessWidget {
               ),
             ),
           ),
-          // Content
           SafeArea(
             child: Column(
               children: [
                 const Spacer(flex: 2),
-                // Logo + GameMart text
                 Column(
                   children: [
                     Image.network(
@@ -56,7 +53,6 @@ class SplashScreen extends StatelessWidget {
                     const Text(
                       'GameMart',
                       style: TextStyle(
-                        fontFamily: 'Inter',
                         fontSize: 40,
                         fontWeight: FontWeight.w800,
                         color: Color(0xFFD9D9D9),
@@ -65,7 +61,6 @@ class SplashScreen extends StatelessWidget {
                   ],
                 ),
                 const Spacer(flex: 3),
-                // Start button
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: SizedBox(
@@ -75,7 +70,7 @@ class SplashScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (_) => const LoginScreen(),
+                            builder: (_) => const OnboardingScreen(),
                           ),
                         );
                       },
@@ -91,7 +86,6 @@ class SplashScreen extends StatelessWidget {
                       child: const Text(
                         'Start',
                         style: TextStyle(
-                          fontFamily: 'Inter',
                           fontSize: 24,
                           fontWeight: FontWeight.w600,
                           color: Colors.black,
