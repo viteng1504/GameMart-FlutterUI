@@ -4,8 +4,8 @@ const Color kBackground = Color(0xFFF6F8FC);
 const Color kCard = Colors.white;
 const Color kTextPrimary = Color(0xFF111827);
 const Color kTextSecondary = Color(0xFF6B7280);
-const Color kAccent = Color.fromARGB(255, 180, 200, 78);
-const Color kAccentSoft = Color(0xFFEEF2FF);
+const Color kAccent = Color(0xFF149CFF);
+const Color kAccentSoft = Color(0xFFE8F6FF);
 
 const String kProfileImage =
     'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80';
@@ -66,11 +66,7 @@ class ProfileScreen extends StatelessWidget {
           height: 230,
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [
-                Color.fromARGB(255, 154, 176, 84),
-                Color.fromARGB(255, 185, 192, 66),
-                Color.fromARGB(255, 130, 150, 40),
-              ],
+              colors: [Color(0xFF149CFF), Color(0xFF1E9EFF), Color(0xFF0D7FCC)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
@@ -451,10 +447,7 @@ class EditProfileScreen extends StatelessWidget {
                   height: 190,
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [
-                        Color.fromARGB(255, 173, 192, 65),
-                        Color.fromARGB(255, 189, 199, 94),
-                      ],
+                      colors: [Color(0xFF149CFF), Color(0xFF1E9EFF)],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ),
