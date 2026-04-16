@@ -50,6 +50,7 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(height: 88),
             _buildStats(),
             _buildGridMenu(context),
+            SizedBox(height: 80),
           ],
         ),
       ),
@@ -65,7 +66,11 @@ class ProfileScreen extends StatelessWidget {
           height: 230,
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color.fromARGB(255, 154, 176, 84), Color.fromARGB(255, 185, 192, 66), Color.fromARGB(255, 130, 150, 40)],
+              colors: [
+                Color.fromARGB(255, 154, 176, 84),
+                Color.fromARGB(255, 185, 192, 66),
+                Color.fromARGB(255, 130, 150, 40),
+              ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
@@ -446,7 +451,10 @@ class EditProfileScreen extends StatelessWidget {
                   height: 190,
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [Color.fromARGB(255, 173, 192, 65), Color.fromARGB(255, 189, 199, 94)],
+                      colors: [
+                        Color.fromARGB(255, 173, 192, 65),
+                        Color.fromARGB(255, 189, 199, 94),
+                      ],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ),
