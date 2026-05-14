@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_mart/screens/cart/review_bottom_sheet.dart';
 
 class MyOrdersScreen extends StatefulWidget {
   const MyOrdersScreen({super.key});
@@ -62,7 +63,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
           padding: const EdgeInsets.all(0),
           child: Container(
             width: double.infinity,
-            decoration: BoxDecoration(color: const Color(0xFFF4F4F4)),
+            decoration: BoxDecoration(color: const Color(0xFF272E4C)),
             child: Padding(
               padding: const EdgeInsets.all(8),
               child: Column(
@@ -75,7 +76,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                         icon: const Icon(
                           Icons.arrow_back,
                           size: 24,
-                          color: Color.fromARGB(0, 34, 34, 34),
+                          color: Colors.white,
                         ),
                       ),
                       const Expanded(
@@ -85,7 +86,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w800,
-                            color: Color(0xFF222222),
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -93,7 +94,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                         onPressed: () {},
                         icon: const Icon(
                           Icons.notifications_none,
-                          color: Color(0xFF222222),
+                          color: Colors.white,
                           size: 24,
                         ),
                       ),
@@ -180,7 +181,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                               style: const TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
-                                color: Colors.black54,
+                                color: Colors.white70,
                               ),
                             ),
                           )
@@ -196,7 +197,16 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
                                 buttonText: isOngoing
                                     ? 'Leave Review'
                                     : 'Buy Again',
-                                onPressed: () {},
+                                onPressed: () {
+                                  showModalBottomSheet(
+                                    context: context,
+                                    backgroundColor: Colors.transparent,
+                                    isScrollControlled: true,
+                                    builder: (context) {
+                                      return const ReviewBottomSheet();
+                                    },
+                                  );
+                                },
                               );
                             },
                           ),
@@ -227,7 +237,7 @@ class _OrderCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
       decoration: BoxDecoration(
-        color: const Color(0xFFF4F4F4),
+        color: const Color.fromARGB(0, 244, 244, 244),
         borderRadius: BorderRadius.circular(14),
         border: Border.all(color: const Color(0xFFB8B8B8)),
       ),
@@ -257,7 +267,7 @@ class _OrderCard extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w700,
-                      color: Color(0xFF222222),
+                      color: Colors.white,
                     ),
                   ),
                   const SizedBox(height: 2),
@@ -265,7 +275,7 @@ class _OrderCard extends StatelessWidget {
                     item.subtitle,
                     style: const TextStyle(
                       fontSize: 12,
-                      color: Color(0xFF8A8A8A),
+                      color: Color(0xFFB0B0B0),
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -277,7 +287,7 @@ class _OrderCard extends StatelessWidget {
                         style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w800,
-                          color: Color(0xFF222222),
+                          color: Colors.white,
                         ),
                       ),
                       const Spacer(),
@@ -288,7 +298,10 @@ class _OrderCard extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFF12A8FF),
                             foregroundColor: Colors.white,
-                            padding: const EdgeInsets.symmetric(horizontal: 12),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 12,
+                              vertical: 4,
+                            ),
                             elevation: 0,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(6),
@@ -297,7 +310,7 @@ class _OrderCard extends StatelessWidget {
                           child: Text(
                             buttonText,
                             style: const TextStyle(
-                              fontSize: 10,
+                              fontSize: 12,
                               fontWeight: FontWeight.w500,
                             ),
                           ),

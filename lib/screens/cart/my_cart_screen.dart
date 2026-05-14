@@ -73,178 +73,176 @@ class _MyCartScreenState extends State<MyCartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1D1D1D),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-          child: Container(
-            width: double.infinity,
-            decoration: BoxDecoration(color: const Color(0xFFF6F6F6)),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 18, 16, 12),
-                  child: Row(
-                    children: [
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.arrow_back,
-                          size: 24,
-                          color: Color.fromARGB(0, 34, 34, 34),
-                        ),
+      backgroundColor: const Color(0xFF272E4C),
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(0, 0, 0, 70),
+        child: Container(
+          width: double.infinity,
+          decoration: BoxDecoration(color: const Color(0xFF272E4C)),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 18, 16, 12),
+                child: Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        size: 24,
+                        color: Color.fromARGB(0, 234, 233, 233),
                       ),
-                      const Expanded(
-                        child: Center(
-                          child: Text(
-                            'My Cart',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w800,
-                              color: Color(0xFF222222),
-                            ),
+                    ),
+                    const Expanded(
+                      child: Center(
+                        child: Text(
+                          'My Cart',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w800,
+                            color: Colors.white,
                           ),
                         ),
                       ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.notifications_none,
-                          size: 24,
-                          color: Color(0xFF222222),
-                        ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.notifications_none,
+                        size: 24,
+                        color: Colors.white,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 18),
-                    child: Column(
-                      children: [
-                        Expanded(
-                          child: cartItems.isEmpty
-                              ? const Center(
-                                  child: Text(
-                                    'Your cart is empty',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600,
-                                      color: Colors.black54,
-                                    ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: cartItems.isEmpty
+                            ? const Center(
+                                child: Text(
+                                  'Your cart is empty',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color.fromARGB(137, 225, 222, 222),
                                   ),
-                                )
-                              : ListView.separated(
-                                  padding: EdgeInsets.zero,
-                                  itemCount: cartItems.length,
-                                  separatorBuilder: (_, __) =>
-                                      const SizedBox(height: 12),
-                                  itemBuilder: (context, index) {
-                                    final item = cartItems[index];
-                                    return _CartItemCard(
-                                      item: item,
-                                      onIncrease: () => increaseQuantity(index),
-                                      onDecrease: () => decreaseQuantity(index),
-                                      onDelete: () => removeItem(index),
-                                    );
-                                  },
                                 ),
-                        ),
-                        const SizedBox(height: 10),
-                        if (cartItems.isNotEmpty)
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: GestureDetector(
-                              onTap: clearAll,
-                              child: const Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(
-                                    'Clear all',
-                                    style: TextStyle(
-                                      color: Colors.red,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                  ),
-                                  SizedBox(width: 4),
-                                  Icon(
-                                    Icons.delete_outline,
-                                    color: Colors.red,
-                                    size: 16,
-                                  ),
-                                ],
+                              )
+                            : ListView.separated(
+                                padding: EdgeInsets.zero,
+                                itemCount: cartItems.length,
+                                separatorBuilder: (_, __) =>
+                                    const SizedBox(height: 12),
+                                itemBuilder: (context, index) {
+                                  final item = cartItems[index];
+                                  return _CartItemCard(
+                                    item: item,
+                                    onIncrease: () => increaseQuantity(index),
+                                    onDecrease: () => decreaseQuantity(index),
+                                    onDelete: () => removeItem(index),
+                                  );
+                                },
                               ),
-                            ),
-                          ),
-                        const SizedBox(height: 12),
-                        _SummaryRow(
-                          label: 'Sub-total',
-                          value: '\$ ${subtotal.toStringAsFixed(2)}',
-                          labelColor: const Color(0xFF9A9A9A),
-                          valueColor: const Color(0xFF222222),
-                        ),
-                        const SizedBox(height: 12),
-                        _SummaryRow(
-                          label: 'VAT (%)',
-                          value: '\$ ${vat.toStringAsFixed(2)}',
-                          labelColor: const Color(0xFF9A9A9A),
-                          valueColor: const Color(0xFF222222),
-                        ),
-                        const SizedBox(height: 14),
-                        const Divider(thickness: 1, color: Color(0xFFE2E2E2)),
-                        const SizedBox(height: 12),
-                        _SummaryRow(
-                          label: 'Total',
-                          value: '\$ ${total.toStringAsFixed(2)}',
-                          labelColor: const Color(0xFF6D6D6D),
-                          valueColor: const Color(0xFF222222),
-                          isBold: true,
-                        ),
-                        const SizedBox(height: 28),
-                        SizedBox(
-                          width: double.infinity,
-                          height: 52,
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) => const CheckoutScreen(),
-                                ),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF12A8FF),
-                              foregroundColor: Colors.white,
-                              elevation: 0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
+                      ),
+                      const SizedBox(height: 10),
+                      if (cartItems.isNotEmpty)
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: GestureDetector(
+                            onTap: clearAll,
                             child: const Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.min,
                               children: [
                                 Text(
-                                  'Go To Checkout',
+                                  'Clear all',
                                   style: TextStyle(
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.w500,
+                                    color: Colors.red,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
                                   ),
                                 ),
-                                SizedBox(width: 10),
-                                Icon(Icons.arrow_forward, size: 20),
+                                SizedBox(width: 4),
+                                Icon(
+                                  Icons.delete_outline,
+                                  color: Colors.red,
+                                  size: 16,
+                                ),
                               ],
                             ),
                           ),
                         ),
-                        const SizedBox(height: 22),
-                      ],
-                    ),
+                      const SizedBox(height: 12),
+                      _SummaryRow(
+                        label: 'Sub-total',
+                        value: '\$ ${subtotal.toStringAsFixed(2)}',
+                        labelColor: const Color.fromARGB(255, 231, 231, 231),
+                        valueColor: const Color.fromARGB(255, 189, 184, 184),
+                      ),
+                      const SizedBox(height: 12),
+                      _SummaryRow(
+                        label: 'VAT (%)',
+                        value: '\$ ${vat.toStringAsFixed(2)}',
+                        labelColor: const Color.fromARGB(255, 214, 212, 212),
+                        valueColor: const Color.fromARGB(255, 218, 218, 218),
+                      ),
+                      const SizedBox(height: 14),
+                      const Divider(thickness: 1, color: Color.fromARGB(255, 226, 226, 226)),
+                      const SizedBox(height: 12),
+                      _SummaryRow(
+                        label: 'Total',
+                        value: '\$ ${total.toStringAsFixed(2)}',
+                        labelColor: const Color.fromARGB(255, 109, 109, 109),
+                        valueColor: const Color.fromARGB(255, 215, 213, 213),
+                        isBold: true,
+                      ),
+                      const SizedBox(height: 28),
+                      SizedBox(
+                        width: double.infinity,
+                        height: 52,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const CheckoutScreen(),
+                              ),
+                            );
+                          },    
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFF12A8FF),
+                            foregroundColor: Colors.white,
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          child: const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'Go To Checkout',
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(width: 10),
+                              Icon(Icons.arrow_forward, size: 20),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 22),
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
@@ -270,7 +268,7 @@ class _CartItemCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.fromLTRB(10, 8, 10, 8),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.transparent,
         borderRadius: BorderRadius.circular(14),
         border: Border.all(color: const Color(0xFFD8D8D8)),
       ),
@@ -305,7 +303,7 @@ class _CartItemCard extends StatelessWidget {
                             fontSize: 14,
                             height: 1.2,
                             fontWeight: FontWeight.w700,
-                            color: Color(0xFF222222),
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -337,7 +335,7 @@ class _CartItemCard extends StatelessWidget {
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w800,
-                          color: Color(0xFF222222),
+                          color: Colors.white,
                         ),
                       ),
                       const Spacer(),
@@ -350,7 +348,7 @@ class _CartItemCard extends StatelessWidget {
                           style: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
-                            color: Color(0xFF555555),
+                            color: Colors.white,
                           ),
                         ),
                       ),

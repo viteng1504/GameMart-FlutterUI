@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_mart/screens/cart/my_order_screen.dart';
 
 class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen({super.key});
@@ -75,7 +76,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   height: 46,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pop(context);
+                      // Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const MyOrdersScreen(),
+                        ),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF12A8FF),
@@ -162,7 +169,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           style: TextStyle(
             fontSize: 14,
             fontWeight: isTotal ? FontWeight.w500 : FontWeight.w400,
-            color: isTotal ? const Color(0xFF5B5B5B) : const Color(0xFF9C9C9C),
+            color: isTotal ? Colors.white : const Color(0xFFB0B0B0),
           ),
         ),
         const Spacer(),
@@ -171,7 +178,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           style: TextStyle(
             fontSize: 14,
             fontWeight: isTotal ? FontWeight.w700 : FontWeight.w500,
-            color: const Color(0xFF222222),
+            color: Colors.white,
           ),
         ),
       ],
@@ -187,7 +194,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           padding: const EdgeInsets.all(0),
           child: Container(
             width: double.infinity,
-            decoration: BoxDecoration(color: const Color(0xFFF4F4F4)),
+            decoration: BoxDecoration(color: const Color(0xFF272E4C)),
             child: Padding(
               padding: const EdgeInsets.fromLTRB(14, 18, 14, 16),
               child: Column(
@@ -201,7 +208,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         icon: const Icon(
                           Icons.arrow_back,
                           size: 22,
-                          color: Color(0xFF222222),
+                          color: Colors.white,
                         ),
                       ),
                       const Expanded(
@@ -211,7 +218,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w800,
-                            color: Color(0xFF222222),
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -220,7 +227,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         icon: const Icon(
                           Icons.notifications_none,
                           size: 22,
-                          color: Color(0xFF222222),
+                          color: Colors.white,
                         ),
                       ),
                     ],
@@ -231,7 +238,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w700,
-                      color: Color(0xFF222222),
+                      color: Colors.white,
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -304,7 +311,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w700,
-                      color: Color(0xFF222222),
+                      color: Colors.white,
                     ),
                   ),
                   const SizedBox(height: 12),
