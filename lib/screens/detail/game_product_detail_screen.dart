@@ -19,7 +19,8 @@ class _GameProductDetailScreenState extends State<GameProductDetailScreen> {
     showModalBottomSheet(
       context: context,
       isScrollControlled: false,
-      backgroundColor: Colors.transparent,
+      backgroundColor: const Color(0xFF272E4C),
+
       builder: (context) {
         return StatefulBuilder(
           builder: (context, setModalState) {
@@ -29,7 +30,7 @@ class _GameProductDetailScreenState extends State<GameProductDetailScreen> {
               margin: const EdgeInsets.all(12),
               padding: const EdgeInsets.fromLTRB(18, 14, 18, 20),
               decoration: BoxDecoration(
-                color: const Color(0xFFDDECF8),
+                color: const Color(0xFF272E4C),
                 borderRadius: BorderRadius.circular(24),
                 boxShadow: const [
                   BoxShadow(
@@ -197,7 +198,7 @@ class _GameProductDetailScreenState extends State<GameProductDetailScreen> {
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w800,
-              color: Color(0xFF1E1E1E),
+              color: Color.fromARGB(255, 223, 223, 223),
             ),
           ),
           const SizedBox(height: 14),
@@ -218,7 +219,7 @@ class _GameProductDetailScreenState extends State<GameProductDetailScreen> {
               fontSize: 15,
               height: 1.35,
               fontWeight: FontWeight.w500,
-              color: Color(0xFF111111),
+              color: Color.fromARGB(255, 229, 229, 229),
             ),
           ),
           const SizedBox(height: 12),
@@ -242,7 +243,7 @@ class _GameProductDetailScreenState extends State<GameProductDetailScreen> {
             style: TextStyle(
               fontSize: 15,
               height: 1.4,
-              color: Color(0xFF222222),
+              color: Color.fromARGB(255, 229, 227, 227),
             ),
           ),
           const SizedBox(height: 22),
@@ -254,7 +255,7 @@ class _GameProductDetailScreenState extends State<GameProductDetailScreen> {
               style: OutlinedButton.styleFrom(
                 backgroundColor: isAddedToCart
                     ? const Color(0xFF1DA1F2)
-                    : Colors.white,
+                    : Colors.transparent,
                 side: BorderSide(
                   color: const Color(0xFF1DA1F2),
                   width: isAddedToCart ? 0 : 1.7,
@@ -281,7 +282,7 @@ class _GameProductDetailScreenState extends State<GameProductDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF2F2F2),
+      backgroundColor: const Color(0xFF272E4C),
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -335,7 +336,7 @@ class _BulletText extends StatelessWidget {
       style: const TextStyle(
         fontSize: 14,
         height: 1.35,
-        color: Color(0xFF111111),
+        color: Color.fromARGB(255, 242, 242, 242),
       ),
     );
   }
@@ -375,7 +376,7 @@ class _ChooseAmountState extends StatelessWidget {
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w700,
-            color: Color(0xFF111111),
+            color: Color.fromARGB(255, 231, 231, 231),
           ),
         ),
         const SizedBox(height: 14),
@@ -403,6 +404,7 @@ class _ChooseAmountState extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
+                          color: Colors.white,
                         ),
                       ),
                       Container(
@@ -419,6 +421,7 @@ class _ChooseAmountState extends StatelessWidget {
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w700,
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -430,6 +433,7 @@ class _ChooseAmountState extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
+                      color: Colors.white,
                     ),
                   ),
                 ],
@@ -501,7 +505,7 @@ class _AddedState extends StatelessWidget {
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w800,
-            color: Color(0xFF111111),
+            color: Color.fromARGB(255, 250, 250, 250),
           ),
         ),
         const SizedBox(height: 18),
@@ -527,6 +531,7 @@ class _AddedState extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
+                      color: Color.fromARGB(255, 243, 243, 243),
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -535,6 +540,7 @@ class _AddedState extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
+                      color: Color.fromARGB(255, 243, 243, 243),
                     ),
                   ),
                 ],
