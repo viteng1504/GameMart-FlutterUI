@@ -7,7 +7,7 @@ class GameDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF3F3F3),
+      backgroundColor: const Color(0xFF272E4C),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -166,7 +166,7 @@ class _TagSection extends StatelessWidget {
     final tags = ['RPG', 'Sci-fi', 'Anime', 'Action'];
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 18),
       child: SizedBox(
         height: 34,
         child: ListView.separated(
@@ -175,9 +175,9 @@ class _TagSection extends StatelessWidget {
           separatorBuilder: (_, __) => const SizedBox(width: 10),
           itemBuilder: (context, index) {
             return Container(
-              padding: const EdgeInsets.symmetric(horizontal: 18),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: const Color.fromARGB(168, 217, 217, 217),
                 borderRadius: BorderRadius.circular(18),
                 border: Border.all(color: Colors.black, width: 1.8),
               ),
@@ -212,7 +212,7 @@ class _AboutSection extends StatelessWidget {
             style: TextStyle(
               fontSize: 17,
               fontWeight: FontWeight.w800,
-              color: Color(0xFF222222),
+              color: Color.fromARGB(255, 255, 255, 255),
             ),
           ),
           SizedBox(height: 10),
@@ -221,7 +221,7 @@ class _AboutSection extends StatelessWidget {
             style: TextStyle(
               fontSize: 14,
               height: 1.55,
-              color: Color(0xFF666666),
+              color: Color.fromARGB(255, 165, 162, 162),
             ),
           ),
         ],
@@ -296,7 +296,7 @@ class _ProductsSection extends StatelessWidget {
             style: TextStyle(
               fontSize: 17,
               fontWeight: FontWeight.w800,
-              color: Color(0xFF222222),
+              color: Color.fromARGB(255, 255, 255, 255),
             ),
           ),
           const SizedBox(height: 12),
@@ -387,7 +387,7 @@ class _SimilarGamesSection extends StatelessWidget {
             style: TextStyle(
               fontSize: 17,
               fontWeight: FontWeight.w800,
-              color: Color(0xFF222222),
+              color: Color.fromARGB(255, 253, 253, 253),
             ),
           ),
           const SizedBox(height: 12),
@@ -432,7 +432,7 @@ class _ReviewsSection extends StatelessWidget {
             style: TextStyle(
               fontSize: 17,
               fontWeight: FontWeight.w800,
-              color: Color(0xFF222222),
+              color: Color.fromARGB(255, 255, 255, 255),
             ),
           ),
           SizedBox(height: 14),
@@ -471,7 +471,7 @@ class _ReviewItem extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w700,
-                  color: Color(0xFF222222),
+                  color: Color.fromARGB(255, 236, 236, 236),
                 ),
               ),
               SizedBox(height: 2),
@@ -490,7 +490,7 @@ class _ReviewItem extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 13,
                   height: 1.5,
-                  color: Color(0xFF555555),
+                  color: Color.fromARGB(255, 200, 197, 197),
                 ),
               ),
             ],
