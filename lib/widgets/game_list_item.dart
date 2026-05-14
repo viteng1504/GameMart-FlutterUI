@@ -73,7 +73,7 @@ class GameListItem extends StatelessWidget {
                         style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
-                          color: Colors.black,
+                          color: Colors.white,
                           height: 1.3,
                         ),
                       ),

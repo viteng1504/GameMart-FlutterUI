@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_mart/screens/notification/notifications_screen.dart';
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({super.key});
@@ -111,17 +112,17 @@ class _CategoryScreenState extends State<CategoryScreen>
       children: [
         Expanded(
           child: Container(
-            height: 38,
+            height: 46,
             decoration: BoxDecoration(
-              color: const Color(0xFFE9E7E7),
+              color: const Color.fromARGB(54, 104, 95, 95),
               borderRadius: BorderRadius.circular(6),
             ),
             child: TextField(
               controller: _searchController,
               decoration: const InputDecoration(
                 hintText: 'Search',
-                hintStyle: TextStyle(fontSize: 13, color: Color(0xFF595959)),
-                prefixIcon: Icon(Icons.search, color: Colors.black87, size: 22),
+                hintStyle: TextStyle(fontSize: 13, color: Color(0xFFFFFFFF)),
+                prefixIcon: Icon(Icons.search, color: Colors.white, size: 22),
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.symmetric(vertical: 10),
               ),
@@ -130,19 +131,27 @@ class _CategoryScreenState extends State<CategoryScreen>
         ),
         const SizedBox(width: 12),
         Container(
-          width: 38,
-          height: 38,
+          width: 46,
+          height: 46,
           decoration: BoxDecoration(
-            color: const Color(0xFFE9E7E7),
+            color: const Color.fromARGB(54, 104, 95, 95),
             borderRadius: BorderRadius.circular(6),
           ),
           child: Stack(
             children: [
-              const Center(
-                child: Icon(
-                  Icons.notifications_none,
-                  color: Colors.black87,
-                  size: 22,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => NotificationsScreen()),
+                  );
+                },
+                child: const Center(
+                  child: Icon(
+                    Icons.notifications_none,
+                    color: Colors.white,
+                    size: 22,
+                  ),
                 ),
               ),
               Positioned(
@@ -167,8 +176,8 @@ class _CategoryScreenState extends State<CategoryScreen>
   Widget _buildTabBar() {
     return TabBar(
       controller: _tabController,
-      labelColor: Colors.black,
-      unselectedLabelColor: const Color(0xFF707070),
+      labelColor: Colors.white,
+      unselectedLabelColor: const Color.fromARGB(128, 255, 255, 255),
       indicatorColor: const Color(0xFF73D6CF),
       indicatorWeight: 2,
       dividerColor: Colors.transparent,
@@ -193,7 +202,7 @@ class _CategoryScreenState extends State<CategoryScreen>
           style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w800,
-            color: Colors.black,
+            color: Colors.white,
           ),
         ),
         const Spacer(),
@@ -225,7 +234,7 @@ class _CategoryScreenState extends State<CategoryScreen>
         return Container(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(
-            color: const Color(0xFFD9D9D9),
+            color: const Color(0xFF202330),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Row(
@@ -234,8 +243,8 @@ class _CategoryScreenState extends State<CategoryScreen>
                 borderRadius: BorderRadius.circular(6),
                 child: Image.network(
                   item['image']!,
-                  width: 22,
-                  height: 22,
+                  width: 44,
+                  height: 44,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -244,9 +253,9 @@ class _CategoryScreenState extends State<CategoryScreen>
                 child: Text(
                   item['title']!,
                   style: const TextStyle(
-                    fontSize: 13,
+                    fontSize: 16,
                     fontWeight: FontWeight.w500,
-                    color: Colors.black,
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -287,8 +296,8 @@ class _CategoryScreenState extends State<CategoryScreen>
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     fontSize: 14,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
                   ),
                 ),
                 const SizedBox(height: 2),
@@ -296,10 +305,7 @@ class _CategoryScreenState extends State<CategoryScreen>
                   item.subtitle,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    fontSize: 12,
-                    color: Color(0xFF444444),
-                  ),
+                  style: const TextStyle(fontSize: 12, color: Colors.grey),
                 ),
               ],
             ),
@@ -337,7 +343,7 @@ class _CategoryScreenState extends State<CategoryScreen>
           child: Image.network(
             item.banner,
             width: double.infinity,
-            height: 124,
+            height: 156,
             fit: BoxFit.cover,
           ),
         ),
@@ -363,16 +369,13 @@ class _CategoryScreenState extends State<CategoryScreen>
                     style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w700,
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                   ),
                   const SizedBox(height: 2),
                   Text(
                     item.subtitle,
-                    style: const TextStyle(
-                      fontSize: 13,
-                      color: Color(0xFF666666),
-                    ),
+                    style: const TextStyle(fontSize: 13, color: Colors.grey),
                   ),
                 ],
               ),
@@ -401,7 +404,7 @@ class _CategoryScreenState extends State<CategoryScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF6F6F6),
+      backgroundColor: const Color(0xFF272E4C),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(16, 18, 16, 0),

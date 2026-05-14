@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:game_mart/assets/app_asset.dart';
 
 import 'onboarding_screen.dart';
 
@@ -10,13 +11,7 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Positioned.fill(
-            child: Image.network(
-              'https://api.builder.io/api/v1/image/assets/TEMP/7575479f93017167127c8a334d1cc1992df02020?width=804',
-              fit: BoxFit.cover,
-              alignment: Alignment.topCenter,
-            ),
-          ),
+          Positioned.fill(child: Image.asset(AppAsset.logo, fit: BoxFit.cover)),
           Positioned(
             left: 0,
             right: 0,
@@ -28,9 +23,9 @@ class SplashScreen extends StatelessWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    Color(0x00E2D573),
-                    Color(0xE0E2D573),
-                    Color(0xFFE4D7C5),
+                    Color(0x00343A4F),
+                    Color(0xE0343A4F),
+                    Color(0xFF6B75FF),
                   ],
                   stops: [0.0, 0.4, 1.0],
                 ),
@@ -43,8 +38,8 @@ class SplashScreen extends StatelessWidget {
                 const Spacer(flex: 2),
                 Column(
                   children: [
-                    Image.network(
-                      'https://api.builder.io/api/v1/image/assets/TEMP/292aaa208a9582b4687d839acdbcc3a06d732545?width=494',
+                    Image.asset(
+                      AppAsset.appIcon,
                       width: 200,
                       height: 177,
                       fit: BoxFit.contain,

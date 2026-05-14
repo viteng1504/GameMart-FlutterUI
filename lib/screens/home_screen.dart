@@ -17,8 +17,10 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: SingleChildScrollView(
+    return Scaffold(
+      backgroundColor: const Color(0xFF272E4C),
+
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -30,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Expanded(
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.1),
+                        color: Colors.grey.withOpacity(0.2),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: TextField(
@@ -92,7 +94,8 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 24),
             // Paid Games Section
             _buildSectionHeader(context, 'Paid Games', 'See All'),
-            _buildPaidGamesCarousel(context),
+            // _buildPaidGamesCarousel(context),
+            _buildFeaturedGamesCarousel(context),
             const SizedBox(height: 24),
             // Products Section
             _buildSectionHeader(context, 'Products', 'See All'),
@@ -116,9 +119,10 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Text(
             title,
-            style: Theme.of(
-              context,
-            ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
+            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
           ),
           if (action.isNotEmpty)
             GestureDetector(
@@ -226,46 +230,83 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildGenresSection(BuildContext context) {
     final genres = [
-      {'name': 'Adventure', 'icon': Icons.terrain},
-      {'name': 'Action', 'icon': Icons.bolt},
-      {'name': 'Sci-fi', 'icon': Icons.rocket},
-      {'name': 'RPG', 'icon': Icons.shield},
-      {'name': 'Singleplayer', 'icon': Icons.person},
-      {'name': 'Multiplayer', 'icon': Icons.group},
-      {'name': '2D', 'icon': Icons.dashboard},
-      {'name': '3D', 'icon': Icons.view_in_ar},
+      {
+        'name': 'Adventure',
+        'image':
+            'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=200',
+      },
+      {
+        'name': 'Action',
+        'image':
+            'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=200',
+      },
+      {
+        'name': 'Singleplayer',
+        'image':
+            'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=200',
+      },
+      {
+        'name': 'Multiplayer',
+        'image':
+            'https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?q=80&w=200',
+      },
     ];
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Text(
-            'Genres',
-            style: Theme.of(
-              context,
-            ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Genres',
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                  fontWeight: FontWeight.w800,
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+              TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom(
+                  padding: EdgeInsets.zero,
+                  minimumSize: Size.zero,
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                ),
+                child: const Text(
+                  'See All',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 26, 173, 163),
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
-        const SizedBox(height: 4),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: GridView.count(
-            crossAxisCount: 4,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            mainAxisSpacing: 16,
-            crossAxisSpacing: 12,
-            childAspectRatio: 0.85,
-            children: List.generate(genres.length, (index) {
-              final genre = genres[index];
-              return GenreCard(
-                name: genre['name'] as String,
-                icon: genre['icon'] as IconData,
-              );
-            }),
+
+        const SizedBox(height: 28),
+
+        GridView.builder(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: genres.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 20,
+            crossAxisSpacing: 15,
+            childAspectRatio: 2.7,
           ),
+          itemBuilder: (context, index) {
+            final genre = genres[index];
+
+            return GenreCard(name: genre['name']!, imageUrl: genre['image']!);
+          },
         ),
       ],
     );
