@@ -4,7 +4,7 @@ const Color kBackground = Color(0xFFF6F8FC);
 const Color kCard = Colors.white;
 const Color kTextPrimary = Color(0xFF111827);
 const Color kTextSecondary = Color(0xFF6B7280);
-const Color kAccent = Color(0xFF149CFF);
+const Color kAccent = Color(0xFF272E4C);
 const Color kAccentSoft = Color(0xFFE8F6FF);
 
 const String kProfileImage =
@@ -66,7 +66,7 @@ class ProfileScreen extends StatelessWidget {
           height: 230,
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xFF149CFF), Color(0xFF1E9EFF), Color(0xFF0D7FCC)],
+              colors: [Color(0xFF272E4C), Color(0xFF272E4C), Color(0xFF272E4C)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
@@ -447,7 +447,7 @@ class EditProfileScreen extends StatelessWidget {
                   height: 190,
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [Color(0xFF149CFF), Color(0xFF1E9EFF)],
+                      colors: [Color(0xFF272E4C), Color(0xFF272E4C)],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ),
@@ -601,7 +601,7 @@ class GameStatsScreen extends StatelessWidget {
     {
       'name': 'PRAGMATA',
       'time': '10hrs played',
-      'ach': '60/100',
+      'ach': '60/100 achieve',
       'progress': '0.6',
       'image':
           'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80',
@@ -609,7 +609,7 @@ class GameStatsScreen extends StatelessWidget {
     {
       'name': 'Hollow Knight: Silksong',
       'time': '50hrs played',
-      'ach': '60/100',
+      'ach': '60/100 achieve',
       'progress': '0.6',
       'image':
           'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80',
@@ -617,7 +617,7 @@ class GameStatsScreen extends StatelessWidget {
     {
       'name': 'RESIDENT EVIL REQUIEM',
       'time': '12hrs played',
-      'ach': '60/100',
+      'ach': '60/100 achieve',
       'progress': '0.6',
       'image':
           'https://images.unsplash.com/photo-1603481546579-65d935ba9cdd?auto=format&fit=crop&w=600&q=80',
@@ -625,7 +625,7 @@ class GameStatsScreen extends StatelessWidget {
     {
       'name': 'Monster Hunter: Wilds',
       'time': '143hrs played',
-      'ach': '60/100',
+      'ach': '60/100 achieve',
       'progress': '0.6',
       'image':
           'https://images.unsplash.com/photo-1511882150382-421056c89033?auto=format&fit=crop&w=600&q=80',
@@ -633,7 +633,7 @@ class GameStatsScreen extends StatelessWidget {
     {
       'name': 'ELDEN RING',
       'time': '80hrs played',
-      'ach': '60/100',
+      'ach': '60/100 achieve',
       'progress': '0.6',
       'image':
           'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80',
