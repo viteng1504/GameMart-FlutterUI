@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:game_mart/screens/cart/my_cart_screen.dart';
 import 'package:game_mart/screens/chat/chat_bot_screen.dart';
@@ -78,21 +80,31 @@ class _MainScreenState extends State<MainScreen> {
         body: _screens[_selectedIndex],
         bottomNavigationBar: SafeArea(
           minimum: const EdgeInsets.only(left: 4, right: 4, bottom: 8),
-          child: Container(
-            height: 76,
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-            decoration: BoxDecoration(
-              color: const Color(0xFF72778E),
-              borderRadius: BorderRadius.circular(40),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: List.generate(
-                _navItems.length,
-                (index) => _ModernNavItem(
-                  data: _navItems[index],
-                  isSelected: _selectedIndex == index,
-                  onTap: () => _onItemTapped(index),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(40),
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 14, sigmaY: 14),
+              child: Container(
+                height: 76,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 10,
+                ),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF72778E).withOpacity(0.55),
+                  borderRadius: BorderRadius.circular(40),
+                  border: Border.all(color: Colors.white.withOpacity(0.12)),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: List.generate(
+                    _navItems.length,
+                    (index) => _ModernNavItem(
+                      data: _navItems[index],
+                      isSelected: _selectedIndex == index,
+                      onTap: () => _onItemTapped(index),
+                    ),
+                  ),
                 ),
               ),
             ),
