@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:game_mart/screens/profile/game_stat_screen.dart';
 
-const Color kBackground = Color(0xFFF6F8FC);
+const Color kBackground = Color(0xFF272E4C);
 const Color kCard = Colors.white;
 const Color kTextPrimary = Color(0xFF111827);
 const Color kTextSecondary = Color(0xFF6B7280);
@@ -729,7 +729,7 @@ class GameStatsScreen extends StatelessWidget {
               margin: const EdgeInsets.only(bottom: 14),
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.transparent,
                 borderRadius: BorderRadius.circular(22),
                 boxShadow: const [
                   BoxShadow(
@@ -762,14 +762,14 @@ class GameStatsScreen extends StatelessWidget {
                           style: const TextStyle(
                             fontWeight: FontWeight.w800,
                             fontSize: 15,
-                            color: kTextPrimary,
+                            color: Colors.white,
                           ),
                         ),
                         const SizedBox(height: 6),
                         Text(
                           game['time']!,
                           style: const TextStyle(
-                            color: kTextSecondary,
+                            color: Colors.white,
                             fontSize: 12,
                           ),
                         ),
@@ -781,7 +781,7 @@ class GameStatsScreen extends StatelessWidget {
                             value: double.parse(game['progress']!),
                             backgroundColor: const Color(0xFFE5E7EB),
                             valueColor: const AlwaysStoppedAnimation<Color>(
-                              kAccent,
+                              Color.fromARGB(255, 75, 101, 220),
                             ),
                           ),
                         ),
@@ -803,7 +803,7 @@ class GameStatsScreen extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 11,
                         fontWeight: FontWeight.w700,
-                        color: kAccent,
+                        color: Colors.black,
                       ),
                     ),
                   ),
@@ -906,7 +906,7 @@ class WishlistScreen extends StatelessWidget {
           margin: const EdgeInsets.only(bottom: 14),
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: Colors.transparent,
             borderRadius: BorderRadius.circular(22),
             boxShadow: const [
               BoxShadow(
@@ -928,28 +928,40 @@ class WishlistScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 14),
-              Expanded(
-                child: Text(
-                  items[index]['title']!,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w800,
-                    fontSize: 15,
-                    color: kTextPrimary,
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    items[index]['title']!,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w800,
+                      fontSize: 15,
+                      color: Color.fromARGB(255, 215, 216, 218),
+                    ),
                   ),
-                ),
+                  Text(
+                    items[index]['price']!,
+                    style: const TextStyle(
+                      color: Color.fromARGB(255, 227, 227, 230),
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
               ),
-              const SizedBox(width: 10),
+              const Spacer(),
+              // const SizedBox(width: 10),
               Container(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 12,
                   vertical: 8,
                 ),
                 decoration: BoxDecoration(
-                  color: kAccentSoft,
+                  color: Color(0xff08E8DE),
                   borderRadius: BorderRadius.circular(14),
                 ),
                 child: Text(
-                  items[index]['price']!,
+                  "Buy now",
                   style: const TextStyle(
                     color: kAccent,
                     fontWeight: FontWeight.w700,
@@ -1003,14 +1015,20 @@ PreferredSizeWidget _modernAppBar(BuildContext context, String title) {
   return AppBar(
     title: Text(
       title,
-      style: const TextStyle(color: kTextPrimary, fontWeight: FontWeight.w800),
+      style: const TextStyle(
+        color: Color.fromARGB(255, 204, 207, 212),
+        fontWeight: FontWeight.w800,
+      ),
     ),
     backgroundColor: kBackground,
     elevation: 0,
     scrolledUnderElevation: 0,
     centerTitle: false,
     leading: IconButton(
-      icon: const Icon(Icons.arrow_back_ios_new_rounded, color: kTextPrimary),
+      icon: const Icon(
+        Icons.arrow_back_ios_new_rounded,
+        color: Color.fromARGB(255, 226, 229, 235),
+      ),
       onPressed: () => Navigator.pop(context),
     ),
   );
